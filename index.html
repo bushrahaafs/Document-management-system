@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ادارة الوثائق الرسمية</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa; 
+            font-family: 'Cairo', sans-serif; 
+            padding-top: 80px; 
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff; 
+            margin-bottom: 30px;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background-color: #9c769c;
+            width: 100%; 
+            box-sizing: border-box; 
+            z-index: 10; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+
+        .container {
+            margin-top: 100px; /* مسافة إضافية أسفل الـ h2 ليكون هناك مسافة بينه وبين المحتوى */
+        }
+
+        .section-title {
+            font-size: 18px; /* تصغير حجم العناوين الفرعية */
+            margin-bottom: 15px;
+            font-weight: bold;
+            margin-top: 30px; /* مسافة بين العنوان والمحتوى */
+        }
+
+        .card {
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 16px; /* تصغير حجم العنوان داخل الكارد */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-body {
+            font-size: 14px; /* تصغير حجم النص داخل الكارد */
+            color: #555;
+        }
+
+        .card:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="fs-4"> <!-- إضافة الفئة fs-4 للخط داخل body -->
+
+    <div class="container mt-5">
+        <h2>ادارة الوثائق الرسمية</h2>
+
+        <div class="section-title">وثائق إدارية</div>
+        <div class="row" id="section1">
+            <!-- المحتوى الخاص بالقسم -->
+        </div>
+
+        <div class="section-title">تقارير الأداء</div>
+        <div class="row" id="section2">
+            <!-- المحتوى الخاص بالقسم -->
+        </div>
+
+        <div class="section-title">عقود شراكة ومشاريع</div>
+        <div class="row" id="section3">
+            <!-- المحتوى الخاص بالقسم -->
+        </div>
+
+    </div>
+
+    <script>
+        const documents = [
+            { title: "لائحة تنظيم العمل", file: "documents/work_policy.pdf", section: "section1" },
+            { title: "سياسة العمل عن بُعد", file: "documents/remote_work_policy.pdf", section: "section1" },
+            { title: "دليل الموظفين", file: "documents/employee_guide.pdf", section: "section1" },
+
+            { title: "تقرير الأداء السنوي", file: "documents/annual_report.pdf", section: "section2" },
+            { title: "تقرير مبيعات الربع الأول", file: "documents/q1_sales_report.pdf", section: "section2" },
+            { title: "تحليل الأداء للعام الماضي", file: "documents/last_year_performance_analysis.pdf", section: "section2" },
+
+            { title: "عقد الشراكة", file: "documents/partnership_contract.pdf", section: "section3" },
+            { title: "خطة المشاريع المستقبلية", file: "documents/future_project_plan.pdf", section: "section3" },
+            { title: "اتفاقية التعاون بين الشركات", file: "documents/corporate_collaboration_agreement.pdf", section: "section3" }
+        ];
+
+        documents.forEach(doc => {
+            const card = `
+                <div class="col-md-4">
+                    <a href="details.html?title=${encodeURIComponent(doc.title)}&file=${encodeURIComponent(doc.file)}" class="text-decoration-none">
+                        <div class="card p-4 shadow-sm">
+                            <h5 class="card-title">${doc.title}</h5>
+                            <p class="card-body">اضغط هنا لعرض الوثيقة</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+            document.getElementById(doc.section).innerHTML += card;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
