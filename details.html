@@ -63,20 +63,7 @@
             <a id="docLink" class="btn btn-primary mt-3" target="_blank">تحميل الوثيقة</a>
         </div>
     </div>
-
-    <script>
-       
-        const params = new URLSearchParams(window.location.search);
-        const title = decodeURIComponent(params.get("title"));
-        const file = decodeURIComponent(params.get("file"));
-
-        document.getElementById("docTitle").textContent = title;
-        document.getElementById("docLink").href = file;
-        
-      
-        document.getElementById("docPreview").src = file;
-    </script>
-
+    <script src="details.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
